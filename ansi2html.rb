@@ -28,20 +28,20 @@ File.open(file){|f|
 		a = line.partition(/\e\[.*?m/)
 		aline = a[0]
 		while a[1] != ""
-			r = false
+			cs = "color"
 			a[1][2..-2].split(';').each{|code|
 				case code
 					when '0'
-						aline += "<code style=\"color:black; background-color:white\">"
+						aline += "<code style=\"color:black; background-color:white; text-decoration:none\">"
 					when '7'
-						aline += "<code style=\"background-color:black\">"
-						r = true
+						#aline += "<code style=\"background-color:black\">"
+						cs = "background-color"
 					when '36'
-						aline += "<code style=\"color:blue\">"
+						aline += "<code style=\"#{cs}:blue\">"
 					when '34'
-						aline += "<code style=\"color:white\">"
+						aline += "<code style=\"#{cs}:cyan\">"
 					when '33'
-						aline += "<code style=\"color:orange\">"
+						aline += "<code style=\"#{cs}:orange\">"
 					when '4'
 						aline += "<code style=\"text-decoration:underline\">"
 				end
