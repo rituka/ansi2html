@@ -3,12 +3,16 @@
 # ansi2html
 #
 # Convert the ansi output from an xterm screen print
-# into html.  Plus some hacky stuff specifically for
-# editor.rb output.
+# into html.
 #
 # To get the screen print, run:
 # xterm -xrm '*printerCommand: ruby <PATH>/ansi2html.rb > temp.html' -xrm '*printAttributes: 2'
 #
+# Copyright (C) 2011-2012, Jason P. DeVita (jason@wx13.com)
+#
+# Copying and distribution of this file, with or without modification,
+# are permitted in any medium without royalty or restriction.
+# This file is offered as-is, without any warranty.
 
 require 'optparse'
 
@@ -28,6 +32,10 @@ $background = $white
 # process options
 optparse = OptionParser.new{|opts|
 	opts.banner = "Usage: ansi2html [options] file"
+	opts.on('-h','--help', 'Display options'){
+		puts opts
+		exit
+	}
 	opts.on('-d','--dark','Use a darker color versions'){
 		$cyan = "#0aa"
 		$yellow = "#aa0"
