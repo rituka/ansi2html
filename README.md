@@ -45,6 +45,12 @@ and valid html color specifier.
 The -f (--foreground) option does the same for the default text color.
 
 
+Example
+-------
+
+See http://wx13.com/code/ansi2html for an example.
+
+
 License
 -------
 

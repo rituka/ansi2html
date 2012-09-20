@@ -72,9 +72,6 @@ f.each_line{|line|
 	# remove weird starting character
 	line = line.gsub(/\e#5/,'')
 
-	# remove null color at start of line
-	line = line.gsub(/^\e\[0m/,'')
-
 	# process text color/decoration
 	a = line.partition(/\e\[.*?m/)  # split at first escape
 	aline = a[0]
